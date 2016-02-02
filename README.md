@@ -1,19 +1,22 @@
-tutum-docker-slate
-==================
+slate
+=====
 
+Overview
+--------
+
+Container to host a [slate](https://github.com/tripit/slate) site.
 
 Usage
 -----
 
-In your source documentation folder (which looks like [this](https://github.com/tripit/slate/tree/master/source)), create a `Dockerfile` with the following contents:
+In your source documentation folder (which looks like the [source](https://github.com/tripit/slate/tree/master/source) from tripit/slate).
 
-	FROM tutum/slate
+Pull this container and map the documentation folder to `/app/source`:
 
+    $ docker run mattparlette/slate -v /path/to/docs:/app/source
 
-Build the image and run it:
+Go to `http://localhost:4567/` and you will see your new beautiful API documentation.
 
-	docker build -t mydocs .
-	docker run -d -p 4567:4567 mydocs
+You can also change the port (to port 8000, for example) with:
 
-
-Go to `http://localhost:4567/` and you will see your new API beautiful documentation.
+    $ docker run mattparlette/slate -p 8000:4567
