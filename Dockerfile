@@ -1,5 +1,5 @@
 FROM ubuntu:trusty
-MAINTAINER fernando@tutum.co
+MAINTAINER matthew.parlette@gmail.com
 
 RUN apt-get update
 RUN apt-get install -yq ruby ruby-dev build-essential
@@ -11,6 +11,6 @@ ADD slate/ /app
 EXPOSE 4567
 WORKDIR /app
 
-ONBUILD RUN rm -fr /app/source
-ONBUILD ADD . /app/source
+# ONBUILD RUN rm -fr /app/source
+# ONBUILD ADD . /app/source
 CMD ["bundle", "exec", "middleman", "server"]
